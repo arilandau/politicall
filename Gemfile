@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
@@ -14,17 +15,13 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'capybara'
+  gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'devise'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
-end
-
-group :test do
-  gem 'coveralls', require: false
 end
 
 group :development do
