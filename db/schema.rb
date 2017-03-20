@@ -11,22 +11,24 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20170319221315) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "congressmembers", force: :cascade do |t|
-    t.string "first_name",       null: false
-    t.string "middle_name"
-    t.string "last_name",        null: false
-    t.string "party",            null: false
-    t.string "leadership_role"
-    t.string "twitter_account"
-    t.string "facebook_account"
-    t.string "url",              null: false
-    t.string "senority"
-    t.string "next_election",    null: false
-    t.string "phone_number",     null: false
-    t.string "state",            null: false
+    t.string  "first_name",       null: false
+    t.string  "middle_name"
+    t.string  "last_name",        null: false
+    t.string  "party",            null: false
+    t.string  "leadership_role"
+    t.string  "twitter_account"
+    t.string  "facebook_account"
+    t.string  "email",            null: false
+    t.string  "url",              null: false
+    t.string  "senority"
+    t.integer "next_election",    null: false
+    t.string  "phone_number",     null: false
+    t.string  "state",            null: false
   end
 
   create_table "users", force: :cascade do |t|
