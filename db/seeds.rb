@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Congressmember.create!(
   first_name: "Selena",
   last_name: "Meyer",
@@ -12,7 +13,8 @@ Congressmember.create!(
   leadership_role: "Veep",
   twitter_account: "bestVeepEver",
   facebook_account: "bestVeepEver",
+  email: "bestVeepEver@whitehouse.gov",
   url: "veep@veep.com",
-  next_election: "2017", 
+  next_election: "2017",
   phone_number: "123-456-7890",
-  state: "D.C.")
+  state: "MD")
