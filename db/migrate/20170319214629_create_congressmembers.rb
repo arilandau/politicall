@@ -8,9 +8,10 @@ class CreateCongressmembers < ActiveRecord::Migration[5.0]
       t.string :leadership_role
       t.string :twitter_account
       t.string :facebook_account
+      t.string :email, null: false 
       t.string :url, null: false
       t.string :senority
-      t.string :next_election, null: false
+      t.integer :next_election, null: false
       t.string :phone_number, null: false
       t.string :state, null: false
     end
