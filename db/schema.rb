@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170319221315) do
     t.string  "middle_name"
     t.string  "last_name",        null: false
     t.string  "party",            null: false
+    t.string  "chamber",          null: false
     t.string  "leadership_role"
     t.string  "twitter_account"
     t.string  "facebook_account"

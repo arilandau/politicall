@@ -3,6 +3,7 @@ FactoryGirl.define do
     first_name 'Selena'
     last_name 'Meyer'
     party 'D'
+    chamber 'House'
     sequence(:email) { |n| "selenameyer2020#{n}@gmail.com" }
     sequence(:url) { |n| "https://selenameyer2020#{n}.com" }
     next_election '2020'
