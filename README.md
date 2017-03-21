@@ -3,6 +3,6 @@
 ![Coverage Status](https://coveralls.io/repos/github/arilandau/politicall2/badge.svg?branch=master)
 
 # politicall
-An app that allows users to curate lists of Congressmembers
+An app that allows users research Congressmemebers and curate lists of them to call.
 
 # built in Ruby 2.3.3
