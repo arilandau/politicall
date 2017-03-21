@@ -13,6 +13,9 @@ describe Congressmember do
   it { should have_valid(:party).when('D', 'R', 'I') }
   it { should_not have_valid(:party).when('Democrat', 'Republican', 'Anarchist') }
 
+  it { should have_valid(:chamber).when('Senate', 'House') }
+  it { should_not have_valid(:chamber).when('', nil, 'New Jersey') }
+
   it { should have_valid(:url).when('http://www.selina-meyer-veep.com') }
   it { should_not have_valid(:party).when('http://www.selina-meyer-veep', '.com', '') }
 
@@ -22,8 +25,8 @@ describe Congressmember do
   it { should have_valid(:phone_number).when('212-212-2122') }
   it { should_not have_valid(:phone_number).when('212', '212-212-21222') }
 
-  it { should have_valid(:state).when('PA', 'NJ') }
-  it { should_not have_valid(:state).when('Pennsylvania', '', nil) }
+  it { should have_valid(:state).when('Pennsylvania', 'New Jersey') }
+  it { should_not have_valid(:state).when('', nil) }
 
   it 'should have a unique email' do
     expect {
