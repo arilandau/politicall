@@ -1,13 +1,17 @@
 FactoryGirl.define do
   factory :congressmember do
-    first_name 'Selena'
+    first_name 'Selina'
+    middle_name 'Medusa'
     last_name 'Meyer'
     party 'D'
-    chamber 'House'
-    sequence(:email) { |n| "selenameyer2020#{n}@gmail.com" }
-    sequence(:url) { |n| "https://selenameyer2020#{n}.com" }
-    next_election '2020'
-    sequence(:phone_number) { |n| "212-212-212#{n}" }
     state 'IL'
+    chamber 'House'
+    leadership_role 'Veep'
+    next_election '2020'
+    twitter_account 'selina'
+    facebook_account 'selina'
+    sequence(:phone_number) { |n| "212-212-212#{n}" }
+    sequence(:email) { |n| "selinameyer2020#{n}@gmail.com" }
+    sequence(:url) { |n| "https://selinameyer2020#{n}.com" }
   end
 end

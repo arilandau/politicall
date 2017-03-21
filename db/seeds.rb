@@ -9,7 +9,7 @@ Congressmember.destroy_all
 User.destroy_all
 
 Congressmember.create!(
-  first_name: "Selena",
+  first_name: "Selina",
   last_name: "Meyer",
   party: "D",
   chamber: "House",
@@ -17,10 +17,11 @@ Congressmember.create!(
   twitter_account: "bestVeepEver",
   facebook_account: "bestVeepEver",
   email: "bestVeepEver@whitehouse.gov",
-  url: "veep@veep.com",
+  url: "whitehouse.gov",
   next_election: "2017",
   phone_number: "123-456-7890",
-  state: "Maryland")
+  state: "Maryland",
+  photo: "http://cdn.skim.gs/images/pddcwzwwa6fktomdsnht/veeps-selina-meyer-and-other-female-tv-presidents-you-probably-forgot")
 
   Congressmember.create!(
     first_name: "Tony",
@@ -30,8 +31,8 @@ Congressmember.create!(
     leadership_role: "Big Boss",
     twitter_account: "fuggetaboutit",
     facebook_account: "fuggetaboutit",
-    email: "bigtony@newjersey.gov",
-    url: "bigtony.gov",
+    email: "yahoo@yahoo.com",
+    url: "yahoo.com",
     next_election: "2017",
     phone_number: "123-456-7891",
     state: "New Jersey")
@@ -44,8 +45,8 @@ Congressmember.create!(
     leadership_role: "Diva",
     twitter_account: "misspiggy",
     facebook_account: "misspiggy",
-    email: "misspiggy@newyork.gov",
-    url: "misspiggy.gov",
+    email: "piggy@gmail.com",
+    url: "google.com",
     next_election: "2017",
     phone_number: "123-456-7892",
     state: "New York")
@@ -59,7 +60,7 @@ Congressmember.create!(
     twitter_account: "bloodthirstyb*tch",
     facebook_account: "bloodthirstyb*tch",
     email: "queen@castlerock.gov",
-    url: "queen.gov",
+    url: "horizon.com",
     next_election: "2017",
     phone_number: "123-456-7893",
     state: "Iowa")
@@ -72,8 +73,8 @@ Congressmember.create!(
     leadership_role: "",
     twitter_account: "",
     facebook_account: "",
-    email: "spidey@montana.gov",
-    url: "spidey.gov",
+    email: "nypl@nypl.org",
+    url: "nypl.org",
     next_election: "2017",
     phone_number: "123-456-7894",
     state: "Montana")
@@ -87,16 +88,26 @@ Congressmember.create!(
     twitter_account: "",
     facebook_account: "",
     email: "queen@virginia.gov",
-    url: "anotherqueen.gov",
+    url: "nbc.com",
     next_election: "2017",
     phone_number: "123-456-7895",
     state: "Virginia")
 
-User.create!(
-  first_name: 'Lisa',
-  last_name: 'Simpson',
-  username: 'lisasimpson2020',
-  email: 'lisasimpson2020@gmail.com',
-  password: 'password',
-  password_confirmation: 'password'
-)
+  User.create!(
+    first_name: 'Lisa',
+    last_name: 'Simpson',
+    username: 'lisasimpson2020',
+    email: 'lisasimpson2020@gmail.com',
+    password: 'password',
+    password_confirmation: 'password',
+    role: 'admin'
+  )
+
+  User.create!(
+    first_name: 'Bart',
+    last_name: 'Simpson',
+    username: 'bsimpson20never',
+    email: 'bsimpson20never@gmail.com',
+    password: 'password',
+    password_confirmation: 'password'
+  )
