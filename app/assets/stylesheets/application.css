@@ -15,7 +15,13 @@
  *= require foundation_and_overrides
 
  */
+  h1 {
+   font-family: monospace;
+  }
 
+  h3 {
+    font-family: monospace;
+  }
   .outer {
     display: flex;
   }

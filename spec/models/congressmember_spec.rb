@@ -44,12 +44,12 @@ describe Congressmember do
   it 'should have a unique url' do
     expect {
       FactoryGirl.create(
-        :congressmember, url: 'https://lisasimpson2020.com'
+        :congressmember, phone_number: '222-222-3333', url: 'https://lisasimpson2020.com'
       )
     }.to_not raise_error
     expect {
       FactoryGirl.create(
-        :congressmember, url: 'https://lisasimpson2020.com'
+        :congressmember, phone_number: '222-222-2222', url: 'https://lisasimpson2020.com'
       )
     }.to raise_error
   end

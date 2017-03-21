@@ -1,0 +1,18 @@
+<p>Up for reelection in <%= @congressmember.next_election %></p>
+  <% if @congressmember.middle_name.present? %>
+    <% name = @congressmember.first_name + " " + @congressmember.middle_name + " " + @congressmember.last_name %>
+  <% else %>
+    <% name = @congressmember.first_name + " " + @congressmember.last_name %>
+  <% end %>
+
+<h1><%= name %></h1>
+<h2><%= @congressmember.party %>, <%= @congressmember.state %></h2>
+<p><%= @congressmember.chamber %>
+
+<p>Leadership role(s): <%= @congressmember.leadership_role %></p>
+
+<p>Twitter: <a href="https://twitter.com/<%= @congressmember.twitter_account %>">@<%= @congressmember.twitter_account %></a></p>
+<p>Facebook: <a href="https://facebook.com/<%= @congressmember.facebook_account%>"><%= @congressmember.facebook_account %></a></p>
+<p>Phone number: <%= @congressmember.phone_number %></p>
+<p>Email: <%= @congressmember.email %></p>
+<p><a href="https://<%= @congressmember.url %>">Website</a></p>

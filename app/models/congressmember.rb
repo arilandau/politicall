@@ -8,4 +8,6 @@ class Congressmember < ApplicationRecord
   validates :next_election, presence: true, length: { is: 4 }, numericality: { greater_than: 2016 }
   validates :phone_number, uniqueness: true, presence: true, format: { with: /\A[0-9]{3}-[0-9]{3}-[0-9]{4}\z/ }
   validates :state, presence: true
+
+  mount_uploader :photo, ProfilePhotoUploader
 end
