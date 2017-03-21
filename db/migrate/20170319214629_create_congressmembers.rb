@@ -5,10 +5,11 @@ class CreateCongressmembers < ActiveRecord::Migration[5.0]
       t.string :middle_name
       t.string :last_name, null: false
       t.string :party, null: false
+      t.string :chamber, null: false
       t.string :leadership_role
       t.string :twitter_account
       t.string :facebook_account
-      t.string :email, null: false 
+      t.string :email, null: false
       t.string :url, null: false
       t.string :senority
       t.integer :next_election, null: false
