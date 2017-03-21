@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :congressmember do
-    first_name 'Lisa'
-    last_name 'Simpson'
+    first_name 'Selena'
+    last_name 'Meyer'
     party 'D'
-    sequence(:email) { |n| "lisasimpson2020#{n}@gmail.com" }
-    sequence(:url) { |n| "https://lisasimpson2020#{n}.com" }
+    sequence(:email) { |n| "selenameyer2020#{n}@gmail.com" }
+    sequence(:url) { |n| "https://selenameyer2020#{n}.com" }
     next_election '2020'
     sequence(:phone_number) { |n| "212-212-212#{n}" }
     state 'IL'
