@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 # [X] I don't have to be signed in
-# [X] I should see details for the individual bar
-# [X] I should be able to go to the bar's website if I click on the link
+# [X] I should see details for the individual congressmember
+# [X] I should be able to go to the congressmember's showpage if I click on it
 
 feature 'visitor sees list of all Congressmembers' do
   scenario 'sees full list' do
@@ -31,5 +31,13 @@ feature 'visitor sees list of all Congressmembers' do
     expect(page).to have_content congress4.last_name
     expect(page).to have_content congress4.party
     expect(page).to have_content congress4.state
+  end
+
+  scenario 'clicks on card to see showpage' do
+    congress1 = FactoryGirl.create(:congressmember)
+    visit root_path
+    click_link 'Selina Meyer'
+
+    expect(page).to have_content congress1.next_election
   end
 end

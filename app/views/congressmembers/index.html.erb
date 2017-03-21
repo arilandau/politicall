@@ -3,12 +3,19 @@
     <div class="table-cards">
       <% @congressmembers.each do |congressmember| %>
         <div class="table-card">
-          <div><%= congressmember.chamber.upcase %></div>
+          <% if congressmember.photo.blank? %>
+            <img src='https://rothfus.house.gov/sites/rothfus.house.gov/files/wysiwyg_uploaded/services.jpg'>
+          <% else %>
+            <img src="<%= congressmember.photo %>">
+          <% end %>
             <div class="content">
-              <h3><%= congressmember.first_name %> <%= congressmember.last_name %></h3>
+              <h3>
+                <% name = congressmember.first_name + " " + congressmember.last_name %>
+                <%= link_to name, congressmember_path(congressmember) %>
+              </h3>
               <%= congressmember.state %>, <%= congressmember.party %>
             </div>
-          <div>Card Footer</div>
+          <div><%= congressmember.chamber.upcase %></div>
         </div>
       <% end %>
     </div>

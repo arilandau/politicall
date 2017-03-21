@@ -11,4 +11,9 @@ class User < ApplicationRecord
     { with: /\A((\w+)|(\.))+\@[a-z]+\.[a-z]{3}\z/ }
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
+  validates :role, presence: true
+
+  def admin?
+    role == "admin"
+  end
 end
