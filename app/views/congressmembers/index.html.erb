@@ -1,15 +1,16 @@
-
-<div class="cards-container">
-  <div class="table-cards">
-<% @congressmembers.each do |congressmember| %>
-      <div class="table-card">
-        <div><%= congressmember.chamber.upcase %></div>
-          <div class="content">
-            <h3><%= congressmember.first_name %> <%= congressmember.last_name %></h3>
-            <%= congressmember.state %>, <%= congressmember.party %>
-          </div>
-        <div>Card Footer</div>
-      </div>
-    <% end %>
+<div class="expandable">
+  <div class="cards-container">
+    <div class="table-cards">
+      <% @congressmembers.each do |congressmember| %>
+        <div class="table-card">
+          <div><%= congressmember.chamber.upcase %></div>
+            <div class="content">
+              <h3><%= congressmember.first_name %> <%= congressmember.last_name %></h3>
+              <%= congressmember.state %>, <%= congressmember.party %>
+            </div>
+          <div>Card Footer</div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
