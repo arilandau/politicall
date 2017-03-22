@@ -8,14 +8,13 @@
           <% else %>
             <img src="<%= congressmember.photo %>">
           <% end %>
-            <div class="content">
-              <h3>
-                <% name = congressmember.first_name + " " + congressmember.last_name %>
-                <%= link_to name, congressmember_path(congressmember) %>
-              </h3>
-              <%= congressmember.state %>, <%= congressmember.party %>
-            </div>
-          <div><%= congressmember.chamber.upcase %></div>
+            <h3>
+              <% name = congressmember.first_name + " " + congressmember.last_name %>
+              <%= link_to name, congressmember_path(congressmember) %>
+            </h3>
+              <h5><%= congressmember.state %>, <%= congressmember.party %></h5>
+            <p><strong><%= congressmember.chamber.upcase %></strong></p>
+          <br>
         </div>
       <% end %>
     </div>

@@ -1,18 +1,36 @@
-<p>Up for reelection in <%= @congressmember.next_election %></p>
-  <% if @congressmember.middle_name.present? %>
-    <% name = @congressmember.first_name + " " + @congressmember.middle_name + " " + @congressmember.last_name %>
-  <% else %>
-    <% name = @congressmember.first_name + " " + @congressmember.last_name %>
-  <% end %>
+<div class="cards-container">
+  <div class="table-card">
+      <br>
+      <h5>Up for r&euml;lection in <%= @congressmember.next_election %></h5>
 
-<h1><%= name %></h1>
-<h2><%= @congressmember.party %>, <%= @congressmember.state %></h2>
-<p><%= @congressmember.chamber %>
+      <% if @congressmember.middle_name.present? %>
+        <% name = @congressmember.first_name + " " + @congressmember.middle_name + " " + @congressmember.last_name %>
+      <% else %>
+        <% name = @congressmember.first_name + " " + @congressmember.last_name %>
+      <% end %>
 
-<p>Leadership role(s): <%= @congressmember.leadership_role %></p>
+      <% if @congressmember.chamber == "House" %>
+        <% chamber = "HOUSE OF REPRESENTATIVES" %>
+      <% else %>
+        <% chamber = @congressmember.chamber.upcase %>
+      <% end %>
 
-<p>Twitter: <a href="https://twitter.com/<%= @congressmember.twitter_account %>">@<%= @congressmember.twitter_account %></a></p>
-<p>Facebook: <a href="https://facebook.com/<%= @congressmember.facebook_account%>"><%= @congressmember.facebook_account %></a></p>
-<p>Phone number: <%= @congressmember.phone_number %></p>
-<p>Email: <%= @congressmember.email %></p>
-<p><a href="https://<%= @congressmember.url %>">Website</a></p>
+    <div class="primary callout">
+      <h1><%= name %></h1>
+      <h5><%= chamber %></h5>
+      <h3><strong><%= @congressmember.party %>, <%= @congressmember.state %></strong></h3>
+    </div>
+
+      <h5>Leadership role(s): <%= @congressmember.leadership_role %></h5>
+      <% if @congressmember.twitter_account.present? %>
+        <h5>Twitter: <a href="https://twitter.com/<%= @congressmember.twitter_account %>">@<%= @congressmember.twitter_account %></a></h5>
+      <% end %>
+      <% if @congressmember.facebook_account.present? %>
+        <h5>Facebook: <a href="https://facebook.com/<%= @congressmember.facebook_account%>"><%= @congressmember.facebook_account %></a></h5>
+      <% end %>
+      <h5>Phone number: <%= @congressmember.phone_number %></h5>
+      <h5>Email: <a href="mailto:<%= @congressmember.email %>"><%= @congressmember.email %></a></h5>
+      <h5><a href="https://<%= @congressmember.url %>">Website</a></h5>
+
+  </div>
+</div>
