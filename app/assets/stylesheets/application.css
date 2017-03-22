@@ -53,6 +53,7 @@
     border: 1px solid #ddd;
     border-radius: 15px;
     text-align: center;
+    background-color: #e6e6e6;
   }
   .table-card div {
       padding: 20px 10px;
@@ -75,4 +76,8 @@
     background-color: #fff;
     text-align:center;
     padding: 20px;
+  }
+
+  body {
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/43/52/fa/4352fadc7fb8bd9cbbb979045b9bce74.jpg);
   }
