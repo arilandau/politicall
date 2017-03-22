@@ -18,16 +18,22 @@
           <li class="menu-text"><h1><strong><%=link_to "POLITICALL", root_path%></strong></h1></li>
           <% if user_signed_in? %>
             <li>
+              <%= link_to "Your Account", edit_user_registration_path %>
+                <ul class="menu">
+                  <% if current_user.admin? %>
+                    <li><%= link_to "Admin", admin_users_path %></li>
+                  <% end %>
+                  <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+                </ul>
+              </li>
+            <li>
+              <a href="google.com">Your Lists</a>
               <ul class="menu">
-                <li>"Create List"</li>
-                <li>"View Lists"</li>
+                <li><a href="google.com">All Lists</a></li>
+                <li><a href="google.com">New List</a></li>
               </ul>
             </li>
-            <li><%= link_to "My Account", edit_user_registration_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            <% if current_user.admin? %>
-              <li><%= link_to "Admin", admin_users_path %></li>
-            <% end %>
           <% else %>
             <li><%= link_to "Sign In", new_user_session_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>

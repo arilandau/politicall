@@ -13,6 +13,22 @@ class CongressmembersController < ApplicationController
     @congressmember = Congressmember.new
   end
 
+  def create
+    @congressmember = Congressmember.create(congressmember_params)
+
+    if @congressmember.save
+      flash[:notice] = 'Congressmember added successfully!'
+      redirect_to @congressmember
+    else
+      errors = ''
+      @congressmember.errors.full_messages.each do |msg|
+        errors += "#{msg}. "
+      end
+      flash[:notice] = errors
+      render 'new'
+    end
+  end
+
   protected
 
   def authorize_user

@@ -32,5 +32,10 @@
       <h5>Email: <a href="mailto:<%= @congressmember.email %>"><%= @congressmember.email %></a></h5>
       <h5><a href="https://<%= @congressmember.url %>">Website</a></h5>
 
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <%= button_to 'Edit', edit_congressmember_path(@congressmember) %>
+        <% end %>
+      <% end %>
   </div>
 </div>
