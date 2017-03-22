@@ -29,6 +29,29 @@ class CongressmembersController < ApplicationController
     end
   end
 
+  def edit
+    @congressmember = Congressmember.find(params[:id])
+  end
+
+  def update
+    @congressmember = Congressmember.find(params[:id])
+    if @congressmember.update_attributes(congressmember_params)
+      flash[:notice] = 'Congressmember updated!'
+      redirect_to @congressmember
+    else
+      flash[:notice] = @congressmember.errors.messages
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @congressmember = Congressmember.find(params[:id])
+    @congressmember.delete
+
+    flash[:notice] = 'Congressmember deleted!'
+    redirect_to root_path
+  end
+
   protected
 
   def authorize_user
@@ -40,7 +63,6 @@ class CongressmembersController < ApplicationController
   private
 
   def congressmember_params
-    params.require(:congressmember).permit(:name, :address, :phone_number, :url, :image_url, :city, :state, :zip, :term)
+    params.require(:congressmember).permit(:first_name, :middle_name, :last_name, :party, :chamber, :leadership_role, :twitter_account, :facebook_account, :email, :url, :senority, :next_election, :phone_number, :state, :photo)
   end
-
 end

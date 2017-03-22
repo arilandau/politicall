@@ -1,0 +1,105 @@
+<%= form_for @congressmember, html: {class: "bar_form"} do |f| %>
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :first_name, class: 'input-group-label' %>
+      <%= f.text_field(:first_name, size: 60, placeholder: "First Name") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :middle_name, class: 'input-group-label' %>
+      <%= f.text_field(:middle_name, size: 60, placeholder: "Middle Name (Optional)") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :last_name, class: 'input-group-label' %>
+      <%= f.text_field(:last_name, size: 60, placeholder: "Last Name") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :state, class: 'input-group-label' %>
+      <%= f.select :state,['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota','Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming', 'District of Columbia', 'Puerto Rico', 'Guam', 'American Samoa', 'U.S. Virgin Islands', 'Northern Mariana Islands'] %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :party, class: 'input-group-label' %>
+      <%= f.select :party, ['D', 'R', 'I'] %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-offset-3 small-6 columns">
+      <%= f.label :chamber, class: 'input-group-label' %>
+      <%= f.select :chamber, ['House', 'Senate'], placeholder: "House or Senate?" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :twitter_account, class: 'input-group-label' %>
+      <%= f.text_field(:twitter_account, size: 60, placeholder: "Just the handle (Optional)") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :facebook_account, class: 'input-group-label' %>
+      <%= f.text_field(:facebook_account, size: 60, placeholder: "Just the account name (Optional)") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :email, class: 'input-group-label' %>
+      <%= f.text_field(:email, size: 60, placeholder: "Email address") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :url, class: 'input-group-label' %>
+      <%= f.text_field(:url, size: 60, placeholder: "Leave off 'https://'") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :senority, class: 'input-group-label' %>
+      <%= f.text_field(:senority, size: 60, placeholder: "Optional") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :next_election, class: 'input-group-label' %>
+      <%= f.text_field(:next_election, size: 60, placeholder: "When are they feeling the heat?") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :phone_number, class: 'input-group-label' %>
+      <%= f.text_field(:phone_number, size: 60, placeholder: "123-456-7890") %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :photo, class: 'input-group-label' %>
+      <%= f.text_field(:photo, size: 60, placeholder: "Optional") %>
+    </div>
+  </div>
+
+  <div align="center">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

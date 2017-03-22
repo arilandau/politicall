@@ -10,7 +10,7 @@ FactoryGirl.define do
     next_election '2020'
     twitter_account 'selina'
     facebook_account 'selina'
-    sequence(:phone_number) { |n| "212-212-212#{n}" }
+    sequence(:phone_number) { |n| "212-212-#{n}#{n}22" }
     sequence(:email) { |n| "selinameyer2020#{n}@gmail.com" }
     sequence(:url) { |n| "https://selinameyer2020#{n}.com" }
   end

@@ -33,8 +33,8 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list = Bar.find(params[:id])
-    if @list.update_attributes(bars_params)
+    @list = List.find(params[:id])
+    if @list.update_attributes(lists_params)
       @list.save
       flash[:notice] = 'List edited successfully!'
       redirect_to @list
