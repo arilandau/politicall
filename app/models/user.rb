@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
   validates :role, presence: true
 
+  has_many :lists
+
   def admin?
     role == "admin"
   end

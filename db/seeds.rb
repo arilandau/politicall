@@ -52,7 +52,7 @@ Congressmember.create!(
     state: "New York")
 
   Congressmember.create!(
-    first_name: "Ceresi",
+    first_name: "Cersei",
     last_name: "Lannister",
     party: "R",
     chamber: "Senate",

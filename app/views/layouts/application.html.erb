@@ -17,6 +17,12 @@
         <ul class="dropdown menu" data-dropdown-menu>
           <li class="menu-text"><h1><strong><%=link_to "POLITICALL", root_path%></strong></h1></li>
           <% if user_signed_in? %>
+            <li>
+              <ul class="menu">
+                <li>"Create List"</li>
+                <li>"View Lists"</li>
+              </ul>
+            </li>
             <li><%= link_to "My Account", edit_user_registration_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <% if current_user.admin? %>
