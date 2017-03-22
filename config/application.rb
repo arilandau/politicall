@@ -13,10 +13,10 @@ require "devise"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
+config.assets.initialize_on_precompile = false
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
 module Politicall
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
