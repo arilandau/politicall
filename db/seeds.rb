@@ -19,7 +19,7 @@ Congressmember.create!(
   email: "bestVeepEver@whitehouse.gov",
   url: "whitehouse.gov",
   next_election: "2017",
-  phone_number: "808-990-7077",
+  phone_number: "212-222-7077",
   state: "Maryland",
   photo: "http://cdn.skim.gs/images/pddcwzwwa6fktomdsnht/veeps-selina-meyer-and-other-female-tv-presidents-you-probably-forgot")
 
