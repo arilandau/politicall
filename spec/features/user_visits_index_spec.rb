@@ -6,10 +6,10 @@ require 'rails_helper'
 
 feature 'visitor sees list of all Congressmembers' do
   scenario 'sees full list' do
-    congress1 = FactoryGirl.create(:congressmember)
-    congress2 = FactoryGirl.create(:congressmember)
-    congress3 = FactoryGirl.create(:congressmember)
-    congress4 = FactoryGirl.create(:congressmember)
+    congress1 = FactoryGirl.create(:congressmember, phone_number: '333-333-3333')
+    congress2 = FactoryGirl.create(:congressmember, phone_number: '444-333-3333')
+    congress3 = FactoryGirl.create(:congressmember, phone_number: '555-333-3333')
+    congress4 = FactoryGirl.create(:congressmember, phone_number: '666-333-3333')
     visit root_path
 
     expect(page).to have_content congress1.first_name

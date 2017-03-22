@@ -34,7 +34,11 @@
 
       <% if current_user %>
         <% if current_user.admin? %>
-          <%= button_to 'Edit', edit_congressmember_path(@congressmember) %>
+          <div align="center">
+            <h3 class="hollow button"><%= link_to 'Edit', edit_congressmember_path(@congressmember) %></h3>
+            <h3 class=" hollow button"><%= link_to 'Delete', congressmember_path(@congressmember), method: :delete %></h3>
+            <br>
+          </div>
         <% end %>
       <% end %>
   </div>
