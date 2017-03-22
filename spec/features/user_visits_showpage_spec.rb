@@ -18,7 +18,7 @@ feature 'visitor sees details for individual congressmember' do
     expect(page).to have_content congressmember.last_name
     expect(page).to have_content congressmember.party
     expect(page).to have_content congressmember.state
-    expect(page).to have_content congressmember.chamber
+    expect(page).to have_content congressmember.chamber.upcase
     expect(page).to have_content congressmember.leadership_role
     expect(page).to have_content congressmember.next_election
     expect(page).to have_content congressmember.twitter_account
@@ -26,7 +26,7 @@ feature 'visitor sees details for individual congressmember' do
     expect(page).to have_content congressmember.facebook_account
     expect(page).to have_link congressmember.facebook_account
     expect(page).to have_content congressmember.phone_number
-    expect(page).to have_content congressmember.email
+    expect(page).to have_link congressmember.email
     expect(page).to have_link("Website")
   end
 end
