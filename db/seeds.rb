@@ -35,7 +35,8 @@ Congressmember.create!(
     url: "yahoo.com",
     next_election: "2017",
     phone_number: "123-456-7891",
-    state: "New Jersey")
+    state: "New Jersey",
+    photo: "http://i.lv3.hbo.com/assets/images/series/the-sopranos/character/tony-soprano-1920.jpg")
 
   Congressmember.create!(
     first_name: "Miss",
@@ -52,7 +53,7 @@ Congressmember.create!(
     state: "New York")
 
   Congressmember.create!(
-    first_name: "Ceresi",
+    first_name: "Cersei",
     last_name: "Lannister",
     party: "R",
     chamber: "Senate",

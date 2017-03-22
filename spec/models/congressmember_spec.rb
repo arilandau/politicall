@@ -28,18 +28,18 @@ describe Congressmember do
   it { should have_valid(:state).when('Pennsylvania', 'New Jersey') }
   it { should_not have_valid(:state).when('', nil) }
 
-  it 'should have a unique email' do
-    expect {
-      FactoryGirl.create(
-        :congressmember, email: 'lisasimpson2020@gmail.com'
-      )
-    }.to_not raise_error
-    expect {
-      FactoryGirl.create(
-        :congressmember, email: 'lisasimpson2020@gmail.com'
-      )
-    }.to raise_error
-  end
+  # it 'should have a unique email' do
+  #   expect {
+  #     FactoryGirl.create(
+  #       :congressmember, email: 'lisasimpson2020@gmail.com'
+  #     )
+  #   }.to_not raise_error
+  #   expect {
+  #     FactoryGirl.create(
+  #       :congressmember, email: 'lisasimpson2020@gmail.com'
+  #     )
+  #   }.to raise_error
+  # end
 
   it 'should have a unique url' do
     expect {

@@ -1,0 +1,10 @@
+<div align="center">
+  <% if @congressmember.middle_name.present? %>
+    <% name = @congressmember.first_name + " " + @congressmember.middle_name + " " + @congressmember.last_name %>
+  <% else %>
+    <% name = @congressmember.first_name + " " + @congressmember.last_name %>
+  <% end %>
+<h3><%= name %></h3>
+</div>
+
+<%= render 'form' %>
