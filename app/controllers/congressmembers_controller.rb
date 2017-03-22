@@ -9,6 +9,10 @@ class CongressmembersController < ApplicationController
     @congressmember = Congressmember.find(params[:id])
   end
 
+  def new
+    @congressmember = Congressmember.new
+  end
+
   protected
 
   def authorize_user
