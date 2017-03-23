@@ -8,6 +8,7 @@ end
 ruby '2.3.3'
 
 gem 'devise'
+gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
