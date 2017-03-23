@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+
   def index
     @lists = List.all
   end
@@ -9,6 +10,7 @@ class ListsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:id])
     @list = List.new
   end
 
@@ -50,6 +52,14 @@ class ListsController < ApplicationController
 
     flash[:notice] = 'List deleted successfully!'
     redirect_to root_path
+  end
+
+  protected
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   private

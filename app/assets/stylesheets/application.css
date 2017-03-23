@@ -22,6 +22,7 @@
   h3 {
     font-family: monospace;
   }
+
   .outer {
     display: flex;
   }
@@ -31,10 +32,10 @@
     flex: 1 1 0;
   }
   .expandable.expanded {
-    flex: 1 1 100%;
+    flex: 1 1 90%;
   }
   .cards-container {
-    flex: 1 1 100%;
+    flex: 1 1 90%;
   }
 
   .container {
@@ -86,8 +87,4 @@
     background-color: #fff;
     text-align:center;
     padding: 20px;
-  }
-
-  body {
-    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/43/52/fa/4352fadc7fb8bd9cbbb979045b9bce74.jpg);
   }
