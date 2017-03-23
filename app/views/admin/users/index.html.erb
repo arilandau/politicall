@@ -2,7 +2,10 @@
 <h3>All Users</h3>
 <ul>
 <% @users.each do |user| %>
-  <li><%= link_to user.username, edit_user_registration_path %></li>
+  <li><%= user.username %><br>
+    <h3 class="hollow button"><%= link_to 'Edit', edit_user_registration_path(user) %></h3>
+    <h3 class="hollow button"><%= link_to 'Delete', user_registration_path(user), method: :delete %></h3>
+  </li>
 <% end %>
 </ul>
 </div>

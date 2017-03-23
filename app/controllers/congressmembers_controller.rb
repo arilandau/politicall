@@ -2,7 +2,8 @@ class CongressmembersController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
-    @congressmembers = Congressmember.all
+    @congressmembers = Congressmember.order(:state)
+
   end
 
   def show
