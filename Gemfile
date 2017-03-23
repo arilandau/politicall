@@ -8,7 +8,7 @@ end
 ruby '2.3.3'
 
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', git: "https://github.com/zurb/foundation-rails.git"
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
