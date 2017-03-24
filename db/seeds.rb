@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Congressmember.destroy_all
 User.destroy_all
+List.destroy_all
+Congresslist.destroy_all
 
-Congressmember.create!(
+c = Congressmember.create!(
   first_name: "Selina",
   last_name: "Meyer",
   party: "D",
@@ -38,7 +40,7 @@ Congressmember.create!(
     state: "New Jersey",
     photo: "http://i.lv3.hbo.com/assets/images/series/the-sopranos/character/tony-soprano-1920.jpg")
 
-  Congressmember.create!(
+c1 = Congressmember.create!(
     first_name: "Miss",
     last_name: "Piggy",
     party: "I",
@@ -50,9 +52,10 @@ Congressmember.create!(
     url: "google.com",
     next_election: "2017",
     phone_number: "123-456-7892",
-    state: "New York")
+    state: "New York",
+    photo: "http://sprogtube.com/wp-content/uploads/2016/01/miss-piggy-goes-to-washington-th.jpg")
 
-  Congressmember.create!(
+c2 = Congressmember.create!(
     first_name: "Cersei",
     last_name: "Lannister",
     party: "R",
@@ -64,9 +67,10 @@ Congressmember.create!(
     url: "horizon.com",
     next_election: "2017",
     phone_number: "123-456-7893",
-    state: "Iowa")
+    state: "Iowa",
+    photo: "http://i.lv3.hbo.com/assets/images/series/game-of-thrones/character/s5/cersei-lannister-1920.jpg")
 
-  Congressmember.create!(
+c3 = Congressmember.create!(
     first_name: "Spider",
     last_name: "Man",
     party: "D",
@@ -80,7 +84,7 @@ Congressmember.create!(
     phone_number: "123-456-7894",
     state: "Montana")
 
-  Congressmember.create!(
+c4 = Congressmember.create!(
     first_name: "Elizabeth",
     last_name: "Something",
     party: "I",
@@ -94,7 +98,7 @@ Congressmember.create!(
     phone_number: "123-456-7895",
     state: "Virginia")
 
-  User.create!(
+u = User.create!(
     first_name: 'Lisa',
     last_name: 'Simpson',
     username: 'lisasimpson2020',
@@ -104,11 +108,36 @@ Congressmember.create!(
     role: 'admin'
   )
 
-  User.create!(
+u2 = User.create!(
     first_name: 'Bart',
     last_name: 'Simpson',
     username: 'bsimpson20never',
     email: 'bsimpson20never@gmail.com',
     password: 'password',
     password_confirmation: 'password'
+  )
+
+l = List.create!(
+    user: u,
+    name: "First List"
+  )
+
+l2 = List.create!(
+    user: u,
+    name: "Second List"
+  )
+
+  Congresslist.create(
+    list: l,
+    congressmember: c
+  )
+
+  Congresslist.create(
+    list: l,
+    congressmember: c1
+  )
+
+  Congresslist.create(
+    list: l,
+    congressmember: c2
   )

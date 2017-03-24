@@ -5,22 +5,22 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :first_name %>
+    <%= f.label :first_name, 'First Name', class: 'input-group-label' %>
     <%= f.email_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %>
+    <%= f.label :last_name, 'Last Name', class: 'input-group-label' %>
     <%= f.email_field :last_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :username %>
+    <%= f.label :username,  class: 'input-group-label' %>
     <%= f.email_field :username, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label :email, class: 'input-group-label' %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -29,17 +29,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(Leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, class: 'input-group-label' %> <i>(Leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><i>(Minimum of 6 characters)</i>
+    <%= f.label :password_confirmation, 'Password Confirmation', class: 'input-group-label' %><i>(Minimum of 6 characters)</i>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(Enter your current password to confirm changes)</i><br />
+    <%= f.label :current_password, 'Current Password', class: 'input-group-label' %> <i>(Enter your current password to confirm changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
