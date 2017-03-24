@@ -15,25 +15,7 @@
  *= require foundation_and_overrides
 
  */
-  h1 {
-   font-family: monospace;
-  }
 
-  h3 {
-    font-family: monospace;
-  }
-
-  .outer {
-    display: flex;
-  }
-  .expandable {
-    padding: 5px;
-    margin-right: 5px;
-    flex: 1 1 0;
-  }
-  .expandable.expanded {
-    flex: 1 1 90%;
-  }
   .cards-container {
     flex: 1 1 90%;
   }
@@ -46,6 +28,31 @@
   .container2 {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .expandable {
+    padding: 5px;
+    margin-right: 5px;
+    flex: 1 1 0;
+  }
+  .expandable.expanded {
+    flex: 1 1 90%;
+  }
+  
+  h1 {
+    font-family: monospace;
+  }
+
+  h3 {
+    font-family: monospace;
+  }
+
+  img {
+    padding-bottom: 20px;
+  }
+
+  .outer {
+    display: flex;
   }
 
   .table-cards {
@@ -67,7 +74,7 @@
     background-color: #e6e6e6;
   }
   .table-card div {
-      padding: 20px 10px;
+      padding: 0px 10px;
       flex: 0 1 auto;
   }
 

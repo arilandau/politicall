@@ -12,8 +12,8 @@ feature 'user creates their own lists' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Submit'
-    click_link 'Your Lists'
+    visit new_user_lists_path(user)
 
-    expect(page).to have_content(list.name)
+    expect(page).to have_content('List Name')
   end
 end
