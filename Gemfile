@@ -5,9 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+<<<<<<< HEAD
 ruby '2.3.3'
 
 gem 'devise'
+=======
+gem 'fog'
+>>>>>>> heroku
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'pg', '~> 0.18'
@@ -20,6 +24,11 @@ group :development, :test do
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+<<<<<<< HEAD
+=======
+  gem 'devise'
+  gem 'dotenv-rails'
+>>>>>>> heroku
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
@@ -32,6 +41,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
