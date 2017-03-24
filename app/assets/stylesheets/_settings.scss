@@ -50,8 +50,8 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
+  primary: #4b0082,
+  secondary: #9370db,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
@@ -241,7 +241,7 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 0 0;
+$button-margin: 0 0 2rem 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);

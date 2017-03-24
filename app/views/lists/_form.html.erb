@@ -1,0 +1,15 @@
+<%= form_for [@user, @list] do |f| %>
+
+
+  <div class="row">
+    <div class = "small-offset-3 small-6 columns">
+      <%= f.label :name, class: 'input-group-label' %>
+      <%= f.text_field(:name, size: 60, placeholder: "Name Your List") %>
+    </div>
+  </div>
+
+  <div align="center">
+    <%= f.submit "Submit" %>
+  </div>
+
+<% end %>
