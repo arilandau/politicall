@@ -5,13 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-<<<<<<< HEAD
 ruby '2.3.3'
 
 gem 'devise'
 gem 'fog'
-gem 'jquery-rails'
 gem 'foundation-rails'
+gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
@@ -22,7 +21,6 @@ group :development, :test do
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'devise'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
