@@ -35,7 +35,7 @@ describe 'admin deletes congressmember' do
     visit congressmember_path(congressmember)
     click_link 'Delete'
 
-    expect(page).to have_content('Congressmember deleted!')
+    expect(page).to have_content('Congressmember deleted.')
     expect(page).to_not have_content(congressmember.first_name)
     expect(page).to_not have_content(congressmember.last_name)
   end

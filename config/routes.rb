@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resource :lists
+    resources :lists do
+      resources :congresslists
+    end
   end
 
   namespace :admin do

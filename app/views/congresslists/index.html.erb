@@ -1,0 +1,24 @@
+<div class="expandable">
+  <div class="cards-container">
+    <div class="table-cards">
+      <% @lists.each do |list| %>
+        <div class="table-card">
+          <h3><%= list.name %></h3>
+            <% list.congressmembers.each do |c| %>
+            <ul>
+              <% if c.middle_name.present? %>
+                <% name = c.first_name + " " + c.middle_name + " " + c.last_name %>
+              <% else %>
+                <% name = c.first_name + " " + c.last_name %>
+              <% end %>
+              <li style="list-style: none"><%= link_to name, congressmember_path(c)%></li>
+            </ul>
+            <% end %>
+            <div align="center" style="padding: 0">
+              <h3 class="hollow button"><%= link_to 'Add'%></h3>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

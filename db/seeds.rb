@@ -82,7 +82,7 @@ c3 = Congressmember.create!(
     url: "nypl.org",
     next_election: "2017",
     phone_number: "123-456-7894",
-    state: "Montana")
+    state: "Ohio")
 
 c4 = Congressmember.create!(
     first_name: "Elizabeth",
@@ -118,12 +118,12 @@ u2 = User.create!(
   )
 
 l = List.create!(
-    user: u,
+    user: u2,
     name: "First List"
   )
 
 l2 = List.create!(
-    user: u,
+    user: u2,
     name: "Second List"
   )
 
