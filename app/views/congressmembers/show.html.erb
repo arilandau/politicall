@@ -15,26 +15,27 @@
         <% chamber = @congressmember.chamber.upcase %>
       <% end %>
 
-    <div class="primary callout">
-      <h1><%= name %></h1>
+    <div class="secondary callout">
+      <h1 style="color: indigo"><%= name %></h1>
       <h5><%= chamber %></h5>
-      <h3><strong><%= @congressmember.party %>, <%= @congressmember.state %></strong></h3>
+      <h3><%= @congressmember.party %>, <%= @congressmember.state %></h3>
     </div>
 
       <h5>Leadership role(s): <%= @congressmember.leadership_role %></h5>
       <% if @congressmember.twitter_account.present? %>
-        <h5>Twitter: <a href="https://twitter.com/<%= @congressmember.twitter_account %>">@<%= @congressmember.twitter_account %></a></h5>
+        <h5>Twitter: <strong><a href="https://twitter.com/<%= @congressmember.twitter_account %>">@<%= @congressmember.twitter_account %></a></strong></h5>
       <% end %>
       <% if @congressmember.facebook_account.present? %>
-        <h5>Facebook: <a href="https://facebook.com/<%= @congressmember.facebook_account%>"><%= @congressmember.facebook_account %></a></h5>
+        <h5>Facebook: <strong><a href="https://facebook.com/<%= @congressmember.facebook_account%>"><%= @congressmember.facebook_account %></a></strong></h5>
       <% end %>
-      <h5>Phone number: <a href="tel:<%= @congressmember.phone_number %>"><%= @congressmember.phone_number %></a></h5>
-      <h5>Email: <a href="mailto:<%= @congressmember.email %>"><%= @congressmember.email %></a></h5>
-      <h5><a href="https://<%= @congressmember.url %>">Website</a></h5>
+      <h5>Phone number: <strong><a href="tel:<%= @congressmember.phone_number %>"><%= @congressmember.phone_number %></a><strong></h5>
+      <h5>Email: <strong><a href="mailto:<%= @congressmember.email %>"><%= @congressmember.email %></a></strong></h5>
+      <h5><strong><a href="https://<%= @congressmember.url %>">Website</a></strong></h5>
 
       <% if current_user %>
         <% if current_user.admin? %>
-          <div align="center">
+          <div align="center" style="padding: 0">
+            <br>
             <h3 class="hollow button"><%= link_to 'Edit', edit_congressmember_path(@congressmember) %></h3>
             <h3 class=" hollow button"><%= link_to 'Delete', congressmember_path(@congressmember), method: :delete %></h3>
             <br>

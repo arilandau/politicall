@@ -10,7 +10,7 @@ describe 'admin edits congressmember' do
     click_button 'Submit'
     visit congressmember_path(congressmember)
 
-    expect(page).to have_link('Edit')
+    expect(page).to have_content('Edit')
   end
 
   it 'user can\'t see edit button' do
@@ -22,7 +22,7 @@ describe 'admin edits congressmember' do
     click_button 'Submit'
     visit congressmember_path(congressmember)
 
-    expect(page).to_not have_link('Edit')
+    expect(page).to_not have_link('Delete')
   end
 
   it 'admin actually edits congressmember' do

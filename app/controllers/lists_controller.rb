@@ -4,20 +4,23 @@ class ListsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @lists = @user.lists
+    @user = User.find(params[:user_id])
+    @lists = @user.lists.order(:updated_at)
   end
 
   def new
+    @user = User.find(params[:user_id])
     @list = List.new
   end
 
   def create
-    @list = List.create(list_params)
+    @list = List.new(name: params[:list][:name])
+    @user = User.find(params[:user_id])
+    @list.user = @user
 
     if @list.save
       flash[:notice] = 'List added successfully!'
-      redirect_to @list
+      redirect_to user_lists_path(@user)
     else
       errors = ''
       @list.errors.full_messages.each do |msg|
@@ -50,6 +53,14 @@ class ListsController < ApplicationController
 
     flash[:notice] = 'List deleted successfully!'
     redirect_to root_path
+  end
+
+  protected
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   private
