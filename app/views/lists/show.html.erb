@@ -1,10 +1,10 @@
+
 <div class="expandable">
   <div class="cards-container">
-    <div class="table-cards">
-      <% @lists.each do |list| %>
-        <div class="table-card">
-          <h3><%= list.name %></h3>
-            <% list.congressmembers.each do |c| %>
+    <div class="table-card">
+        <h3 style="color: indigo"><%= @list.name %></h3>
+          <div class="secondary callout">
+            <% @congressmembers.each do |c| %>
             <ul>
               <% if c.middle_name.present? %>
                 <% name = c.first_name + " " + c.middle_name + " " + c.last_name %>
@@ -14,11 +14,16 @@
               <li style="list-style: none"><%= link_to name, congressmember_path(c)%></li>
             </ul>
             <% end %>
-            <div align="center" style="padding: 0">
-              <h3 class="hollow button"><%= link_to 'Add', congressmembers_path %></h3>
-            </div>
+          </div>
+          <div align="center" style="padding: 0">
+          <h3 class="hollow button">
+            <%= link_to 'Add to List', user_list_path(current_user, @list) %>
+          </h3>
+          <h3 class="hollow button">
+            <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
+          </h3>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

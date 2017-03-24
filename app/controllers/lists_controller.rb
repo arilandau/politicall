@@ -1,11 +1,14 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @lists = List.where(user_id: params[:user_id])
+    @lists = @lists.order(:updated_at)
+    @congressmembers = Congressmember.all
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @lists = @user.lists.order(:updated_at)
+    @user = current_user
+    @list = List.find(params[:id])
+    @congressmembers = @list.congressmembers(:name)
   end
 
   def new
@@ -19,7 +22,7 @@ class ListsController < ApplicationController
     @list.user = @user
 
     if @list.save
-      flash[:notice] = 'List added successfully!'
+      flash[:notice] = 'List added.'
       redirect_to user_lists_path(@user)
     else
       errors = ''
@@ -32,6 +35,7 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @list = List.find(params[:id])
   end
 
@@ -39,7 +43,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     if @list.update_attributes(lists_params)
       @list.save
-      flash[:notice] = 'List edited successfully!'
+      flash[:notice] = 'List updated.'
       redirect_to @list
     else
       flash[:notice] = @list.errors.full_messages
@@ -52,7 +56,7 @@ class ListsController < ApplicationController
     @list.delete
 
     flash[:notice] = 'List deleted successfully!'
-    redirect_to root_path
+    redirect_to user_lists_path
   end
 
   protected
