@@ -381,11 +381,9 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_girl_rails
-<<<<<<< HEAD
   foundation-rails
-=======
   fog
->>>>>>> heroku
+    heroku
   jquery-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
