@@ -7,7 +7,9 @@ end
 
 ruby '2.3.3'
 
+gem 'active_model_serializers'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'fog'
 gem 'foundation-rails'
 gem 'jquery-rails'
@@ -21,7 +23,6 @@ group :development, :test do
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'heroku'
   gem 'pry-rails'

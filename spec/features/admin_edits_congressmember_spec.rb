@@ -37,7 +37,7 @@ describe 'admin edits congressmember' do
     fill_in 'First Name', with: 'Arielle'
     click_button 'Submit'
 
-    expect(page).to have_content('Congressmember updated!')
+    expect(page).to have_content('Congressmember updated.')
     expect(page).to have_content('Arielle')
   end
 end

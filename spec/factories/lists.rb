@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :list do
-    name 'Congressmembers to call'
+    sequence(:name) { |n| "New List Name#{n}#{n}" }
   end
 end
