@@ -37,7 +37,7 @@ class CongressmembersController < ApplicationController
   def update
     @congressmember = Congressmember.find(params[:id])
     if @congressmember.update_attributes(congressmember_params)
-      flash[:notice] = 'Congressmember updated!'
+      flash[:notice] = 'Congressmember updated.'
       redirect_to @congressmember
     else
       flash[:notice] = @congressmember.errors.messages
@@ -49,7 +49,7 @@ class CongressmembersController < ApplicationController
     @congressmember = Congressmember.find(params[:id])
     @congressmember.delete
 
-    flash[:notice] = 'Congressmember deleted!'
+    flash[:notice] = 'Congressmember deleted.'
     redirect_to root_path
   end
 
