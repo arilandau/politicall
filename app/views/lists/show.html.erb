@@ -4,6 +4,7 @@
         <h3 style="color: indigo"><%= @list.name %></h3>
           <% if @congressmembers.present? %>
             <div class="secondary callout">
+              <br>
               <% @congressmembers.each do |c| %>
               <ul>
                 <% if c.middle_name.present? %>
@@ -14,29 +15,16 @@
                 <li style="list-style: none"><%= link_to name, congressmember_path(c)%></li>
               </ul>
               <% end %>
-              <div align="center" style="padding: 0">
-                <h3 class="hollow button">
-                  <%= link_to 'Add to List', edit_user_list_path(current_user, @list) %>
-                </h3>
-
-                <h3 class="hollow button">
-                  <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
-                </h3>
-              </div>
-            </div>
-          <% else %>
-            <div class="secondary callout">
-              <br>
-              <div align="center" style="padding: 0">
-                <h3 class="hollow button">
-                  <%= link_to 'Add to List', new_user_list_congresslist_path(@list, current_user) %>
-                </h3>
-                <h3 class="hollow button">
-                  <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
-                </h3>
-              </div>
-            </div>
           <% end %>
+          <br>
+          <div align="center" style="padding: 0">
+            <h3 class="hollow button">
+              <%= link_to 'Add to List', new_list_congresslist_path(@list) %>
+            </h3>
+            <h3 class="hollow button">
+              <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
+            </h3>
+          </div>
       </div>
     </div>
   </div>
