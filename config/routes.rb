@@ -3,15 +3,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :lists do
-      resources :congresslists
-    end
+    resources :lists
+  end
+
+  resources :lists do
+    resources :congresslists
   end
 
   namespace :admin do
     resources :users
   end
 
-  resources :congressmembers do
-  end
+  resources :congressmembers
 end

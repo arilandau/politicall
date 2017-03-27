@@ -1,28 +1,42 @@
-
 <div class="expandable">
   <div class="cards-container">
     <div class="table-card">
         <h3 style="color: indigo"><%= @list.name %></h3>
-          <div class="secondary callout">
-            <% @congressmembers.each do |c| %>
-            <ul>
-              <% if c.middle_name.present? %>
-                <% name = c.first_name + " " + c.middle_name + " " + c.last_name %>
-              <% else %>
-                <% name = c.first_name + " " + c.last_name %>
+          <% if @congressmembers.present? %>
+            <div class="secondary callout">
+              <% @congressmembers.each do |c| %>
+              <ul>
+                <% if c.middle_name.present? %>
+                  <% name = c.first_name + " " + c.middle_name + " " + c.last_name %>
+                <% else %>
+                  <% name = c.first_name + " " + c.last_name %>
+                <% end %>
+                <li style="list-style: none"><%= link_to name, congressmember_path(c)%></li>
+              </ul>
               <% end %>
-              <li style="list-style: none"><%= link_to name, congressmember_path(c)%></li>
-            </ul>
-            <% end %>
-          </div>
-          <div align="center" style="padding: 0">
-          <h3 class="hollow button">
-            <%= link_to 'Add to List', user_list_path(current_user, @list) %>
-          </h3>
-          <h3 class="hollow button">
-            <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
-          </h3>
-        </div>
+              <div align="center" style="padding: 0">
+                <h3 class="hollow button">
+                  <%= link_to 'Add to List', edit_user_list_path(current_user, @list) %>
+                </h3>
+
+                <h3 class="hollow button">
+                  <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
+                </h3>
+              </div>
+            </div>
+          <% else %>
+            <div class="secondary callout">
+              <br>
+              <div align="center" style="padding: 0">
+                <h3 class="hollow button">
+                  <%= link_to 'Add to List', new_user_list_congresslist_path(@list, current_user) %>
+                </h3>
+                <h3 class="hollow button">
+                  <%= link_to 'Delete List', user_list_path(@list), method: :delete %>
+                </h3>
+              </div>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
