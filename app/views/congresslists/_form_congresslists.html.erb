@@ -1,9 +1,9 @@
-<%= form_for [@user, @congresslist] do |f| %>
-  <% congress = @congressmembers.map { |c| c.first_name + " " + c.last_name } %>
+<%= form_for [@congresslist] do |f| %>
+  <% congress = @congressmembers.map { |c| c.first_name + " " + c.last_name + ", " + c.party + "-" + c.state } %>
   <div class="row">
     <div class = "small-offset-3 small-6 columns">
       <%= f.label :congressmember, class: 'input-group-label' %>
-      <%= f.select :congressmember, congress %>
+      <%= f.select :congressmember, @congressmembers %>
     </div>
   </div>
 

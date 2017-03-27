@@ -1,21 +1,22 @@
 class CongresslistsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @lists = @user.lists
-    @lists = @lists.order(:updated_at)
+    @user = current_user
+    @list = List.find(params[:list_id])
+    @list.user = @user
     @congressmembers = Congressmember.all
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @list = List.find(params[:list_id])
+    @user = current_user
     @congresslist = Congresslist.new
-    @congressmembers = Congressmember.all
+    @list = List.find(params[:list_id])
+    @congressmembers = Congressmember.order(:state)
   end
 
   def create
-    @congresslist = Congresslist.new
-    @user = User.find(params[:user_id])
+    @list = List.find(params[:list_id])
+    @congresslist = Congresslist.new(congresslist_params)
+    @congressmembers = Congressmember.order(:state)
 
     if @congresslist.save
       flash[:notice] = 'List added.'
@@ -33,6 +34,23 @@ class CongresslistsController < ApplicationController
   def update
   end
 
+  def edit
+  end
+
   def destroy
+  end
+
+  protected
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
+
+  private
+
+  def congresslist_params
+    params.require(:congresslist).permit(:congressmember_id, :list_id)
   end
 end

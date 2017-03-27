@@ -8,11 +8,11 @@ feature 'user creates their own lists' do
   let!(:list) { FactoryGirl.create(:list, user: user) }
 
   scenario 'A user sees their own lists' do
-    visit new_user_session_path
+    visit new_user_session
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Submit'
-    visit new_user_lists_path(user)
+    visit new_user_list_path(user)
 
     expect(page).to have_content('List Name')
   end
