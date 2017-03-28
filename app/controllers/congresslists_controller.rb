@@ -47,6 +47,19 @@ class CongresslistsController < ApplicationController
   end
 
   def destroy
+    @list = List.find(params[:list_id])
+    @congressmember = Congressmember.find(params[:id])
+    @congresslist = Congresslist.where(list: @list, congressmember: @congressmember)
+    if @congresslist[0].delete
+      flash[:notice] = "Congressmember deleted."
+    else
+      errors = ''
+      @congresslist.errors.full_messages.each do |msg|
+        errors += "#{msg}. "
+      end
+      flash[:notice] = errors
+    end
+    redirect_to list_path(@list)
   end
 
   protected
