@@ -12,7 +12,10 @@
                 <% else %>
                   <% name = c.first_name + " " + c.last_name %>
                 <% end %>
-                <li style="list-style: none"><%= link_to name, congressmember_path(c)%></li>
+                <% name += ", " + c.party + "-" + c.state  %>
+                <li style="list-style: none"><%= link_to name, congressmember_path(c)%>
+                  <%= link_to '☒', list_congresslist_path(@list, c), method: :delete %>
+                </li>
               </ul>
               <% end %>
           <% end %>
