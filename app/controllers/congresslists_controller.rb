@@ -18,7 +18,7 @@ class CongresslistsController < ApplicationController
     @list = List.find(params[:list_id])
     @congressmember = Congressmember.find(params["congresslist"][:congressmember_id])
     @congresslist = Congresslist.new(list: @list, congressmember: @congressmember)
-    @congresslists = Congresslist.all
+    @congresslists = Congresslist.where(list: @list)
 
     if @congresslists.any? { |c| c.congressmember == @congressmember }
       flash[:notice] = 'You already have that congressmember.'
