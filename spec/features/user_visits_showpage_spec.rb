@@ -25,7 +25,7 @@ feature 'visitor sees details for individual congressmember' do
     expect(page).to have_link congressmember.twitter_account
     expect(page).to have_content congressmember.facebook_account
     expect(page).to have_link congressmember.facebook_account
-    expect(page).to have_content congressmember.phone_number
+    expect(page).to have_content congressmember.phone
     expect(page).to have_link congressmember.email
     expect(page).to have_link("Website")
   end

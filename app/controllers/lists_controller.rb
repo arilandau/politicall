@@ -54,7 +54,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.delete
 
-    flash[:notice] = 'List deleted successfully!'
+    flash[:notice] = 'List deleted.'
     redirect_to user_lists_path(current_user)
   end
 
