@@ -14,7 +14,7 @@
 !/tmp/.keep
 
 # Ignore seeds
-/db/seeds
+/db/seeds.rb
 
 # Ignore env
 .env
