@@ -3,12 +3,6 @@
       <br>
       <h5>Up for r&euml;lection in <%= @congressmember.next_election %></h5>
 
-      <% if @congressmember.middle_name.present? %>
-        <% name = @congressmember.first_name + " " + @congressmember.middle_name + " " + @congressmember.last_name %>
-      <% else %>
-        <% name = @congressmember.first_name + " " + @congressmember.last_name %>
-      <% end %>
-
       <% if @congressmember.chamber == "House" %>
         <% chamber = "HOUSE OF REPRESENTATIVES" %>
       <% else %>
@@ -16,7 +10,7 @@
       <% end %>
 
     <div class="secondary callout">
-      <h1 style="color: indigo"><%= name %></h1>
+      <h1 style="color: indigo"><%= @congressmember.full_name %></h1>
       <h5><%= chamber %></h5>
       <h3><%= @congressmember.party %>, <%= @congressmember.state %></h3>
     </div>

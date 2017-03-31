@@ -2,13 +2,7 @@ Rails.application.routes.draw do
   root 'congressmembers#index'
   devise_for :users
 
-  namespace :api do
-    namespace :v1 do
-      resources :congressmembers, only: [:index, :create]
-    end
-  end
-
-  resources :congressmembers, except: [:index]
+  resources :congressmembers
 
   resources :users do
     resources :lists

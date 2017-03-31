@@ -2,7 +2,7 @@
   <div class="row">
     <div class = "small-offset-3 small-6 columns">
       <%= f.label :congressmember, class: 'input-group-label' %>
-      <%= f.select :congressmember_id, @congressmembers.map { |c| [c.first_name + " " + c.last_name + ", " + c.party + "-" + c.state, c.id] } %>
+      <%= f.select :congressmember_id, @congressmembers.map { |c| [c.full_name + ", " + c.party + "-" + c.state, c.id] } %>
     </div>
   </div>
 

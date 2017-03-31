@@ -16,6 +16,7 @@
 
  */
 
+
   .cards-container {
     flex: 1 1 90%;
   }
@@ -38,7 +39,7 @@
   .expandable.expanded {
     flex: 1 1 90%;
   }
-  
+
   h1 {
     font-family: monospace;
   }
@@ -49,6 +50,22 @@
 
   img {
     padding-bottom: 20px;
+  }
+
+  .search {
+    font-size: 130%;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    background: indigo;
+    color: lightgray;
+    font-family: Courier New;
+    border: none;
+    padding: 10px;
+  }
+
+  .search-bar {
+    width: 6000px !important; 
   }
 
   .outer {

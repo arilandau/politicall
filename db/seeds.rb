@@ -2,27 +2,22 @@ require 'uri'
 require 'rest-client'
 require 'dotenv-rails'
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 def abbr_to_state(input)
   states = [
     ['Arizona', 'AZ'],
     ['Alabama', 'AL'],
     ['Alaska', 'AK'],
+    ['American Samoa','AS'],
     ['Arizona', 'AZ'],
     ['Arkansas', 'AR'],
     ['California', 'CA'],
     ['Colorado', 'CO'],
     ['Connecticut', 'CT'],
+    ['District of Columbia', 'DC'],
     ['Delaware', 'DE'],
     ['Florida', 'FL'],
     ['Georgia', 'GA'],
+    ['Guam', 'GU'],
     ['Hawaii', 'HI'],
     ['Idaho', 'ID'],
     ['Illinois', 'IL'],
@@ -37,6 +32,7 @@ def abbr_to_state(input)
     ['Massachusetts', 'MA'],
     ['Michigan', 'MI'],
     ['Minnesota', 'MN'],
+    ['Northern Marianas', 'MP'],
     ['Mississippi', 'MS'],
     ['Missouri', 'MO'],
     ['Montana', 'MT'],
@@ -52,6 +48,7 @@ def abbr_to_state(input)
     ['Oklahoma', 'OK'],
     ['Oregon', 'OR'],
     ['Pennsylvania', 'PA'],
+    ['Puerto Rico', 'PR'],
     ['Rhode Island', 'RI'],
     ['South Carolina', 'SC'],
     ['South Dakota', 'SD'],
@@ -60,6 +57,7 @@ def abbr_to_state(input)
     ['Utah', 'UT'],
     ['Vermont', 'VT'],
     ['Virginia', 'VA'],
+    ['U.S. Virgin Islands', 'VI'],
     ['Washington', 'WA'],
     ['West Virginia', 'WV'],
     ['Wisconsin', 'WI'],
@@ -71,6 +69,31 @@ def abbr_to_state(input)
   end
 end
 
+def full_name(first_name, last_name)
+  first_name + " " + last_name
+end
+
+def party(initial)
+  if initial == 'D'
+    'Democrat'
+  elsif initial == 'I'
+    'Independent'
+  elsif initial == 'R'
+    'Republican'
+  else
+    'Unknown'
+  end
+end
+
+def check_for_Kilili(name)
+  if name.include?('Gregorio &#39;Kilili&#39;')
+    return 'Gregorio'
+  else
+    return name
+  end
+end
+
+
 Congressmember.destroy_all
 User.destroy_all
 List.destroy_all
@@ -80,10 +103,8 @@ response = RestClient.get('https://api.propublica.org/congress/v1/115/house/memb
 house = JSON.parse(response)
 house['results'][0]['members'].each do |c|
   Congressmember.create!(
-    first_name: c['first_name'],
-    middle_name: c['middle_name'],
-    last_name: c['last_name'],
-    party: c['party'],
+    full_name: check_for_Kilili(full_name(c['first_name'], c['last_name'])),
+    party: party(c['party']),
     chamber: 'House',
     leadership_role: c['leadership_role'],
     twitter_account: c['twitter_account'],
@@ -101,10 +122,8 @@ response = RestClient.get('https://api.propublica.org/congress/v1/115/senate/mem
 senate = JSON.parse(response)
 senate['results'][0]['members'].each do |c|
   Congressmember.create!(
-    first_name: c['first_name'],
-    middle_name: c['middle_name'],
-    last_name: c['last_name'],
-    party: c['party'],
+    full_name: full_name(c['first_name'], c['last_name']),
+    party: party(c['party']),
     chamber: 'Senate',
     leadership_role: c['leadership_role'],
     twitter_account: c['twitter_account'],

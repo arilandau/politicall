@@ -2,8 +2,11 @@ class CongressmembersController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
-    @congressmembers = Congressmember.order(:state)
-
+    @congressmembers = if params[:term]
+                         Congressmember.where('lower(full_name) LIKE ? OR lower(state) LIKE ? OR lower(party) LIKE ? OR next_election::varchar LIKE ?', "%#{params[:term].downcase}%", "%#{params[:term].downcase}%", "%#{params[:term].downcase}%", "%#{params[:term].to_s}%")
+                       else
+                         Congressmember.order(:state)
+                       end
   end
 
   def show
@@ -64,6 +67,6 @@ class CongressmembersController < ApplicationController
   private
 
   def congressmember_params
-    params.require(:congressmember).permit(:first_name, :middle_name, :last_name, :party, :chamber, :leadership_role, :twitter_account, :facebook_account, :email, :url, :senority, :next_election, :phone, :state, :photo)
+    params.require(:congressmember).permit(:full_name, :party, :chamber, :leadership_role, :twitter_account, :facebook_account, :email, :url, :senority, :next_election, :phone, :state, :photo)
   end
 end

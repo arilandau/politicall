@@ -5878,7 +5878,7 @@ a.thumbnail image {
 }
 /* line 60, /Users/arilandau/.gem/ruby/2.3.3/gems/foundation-rails-6.3.1.0/vendor/assets/scss/components/_top-bar.scss */
 .top-bar input {
-  max-width: 200px;
+  max-width: 1500px;
   margin-right: 1rem;
 }
 /* line 66, /Users/arilandau/.gem/ruby/2.3.3/gems/foundation-rails-6.3.1.0/vendor/assets/scss/components/_top-bar.scss */
@@ -5978,7 +5978,7 @@ a.thumbnail image {
   .expandable.expanded {
     flex: 1 1 90%;
   }
-  
+
   h1 {
     font-family: monospace;
   }

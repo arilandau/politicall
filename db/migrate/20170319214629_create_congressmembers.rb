@@ -1,9 +1,7 @@
 class CreateCongressmembers < ActiveRecord::Migration[5.0]
   def change
     create_table :congressmembers do |t|
-      t.string :first_name, null: false
-      t.string :middle_name
-      t.string :last_name, null: false
+      t.string :full_name, null: false
       t.string :party, null: false
       t.string :chamber, null: false
       t.string :leadership_role

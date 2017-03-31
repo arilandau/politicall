@@ -23,9 +23,7 @@ ActiveRecord::Schema.define(version: 20170322175722) do
   end
 
   create_table "congressmembers", force: :cascade do |t|
-    t.string  "first_name",       null: false
-    t.string  "middle_name"
-    t.string  "last_name",        null: false
+    t.string  "full_name",        null: false
     t.string  "party",            null: false
     t.string  "chamber",          null: false
     t.string  "leadership_role"
