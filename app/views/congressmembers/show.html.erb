@@ -28,9 +28,12 @@
       <% if @congressmember.facebook_account.present? %>
         <h5>Facebook: <strong><a href="https://facebook.com/<%= @congressmember.facebook_account%>"><%= @congressmember.facebook_account %></a></strong></h5>
       <% end %>
-      <h5>Phone number: <strong><a href="tel:<%= @congressmember.phone_number %>"><%= @congressmember.phone_number %></a><strong></h5>
-      <h5>Email: <strong><a href="mailto:<%= @congressmember.email %>"><%= @congressmember.email %></a></strong></h5>
-      <h5><strong><a href="https://<%= @congressmember.url %>">Website</a></strong></h5>
+        <h5>Phone number: <strong><a href="tel:<%= @congressmember.phone %>"><%= @congressmember.phone %></a><strong></h5>
+      <% if @congressmember.email.present? %>
+        <h5>Email: <strong><a href="mailto:<%= @congressmember.email %>"><%= @congressmember.email %></a></strong></h5>
+      <% end %>
+
+    <h5><strong><a href="<%= @congressmember.url %>">Website</a></strong></h5>
 
       <% if current_user %>
         <% if current_user.admin? %>

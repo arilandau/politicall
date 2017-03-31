@@ -64,6 +64,6 @@ class CongressmembersController < ApplicationController
   private
 
   def congressmember_params
-    params.require(:congressmember).permit(:first_name, :middle_name, :last_name, :party, :chamber, :leadership_role, :twitter_account, :facebook_account, :email, :url, :senority, :next_election, :phone_number, :state, :photo)
+    params.require(:congressmember).permit(:first_name, :middle_name, :last_name, :party, :chamber, :leadership_role, :twitter_account, :facebook_account, :email, :url, :senority, :next_election, :phone, :state, :photo)
   end
 end

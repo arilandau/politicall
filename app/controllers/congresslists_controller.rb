@@ -24,7 +24,7 @@ class CongresslistsController < ApplicationController
       flash[:notice] = 'You already have that congressmember.'
       redirect_to list_path(@list)
     elsif @congresslist.save
-      flash[:notice] = 'List added.'
+      flash[:notice] = 'Congressmember added.'
       redirect_to list_path(@list)
     else
       errors = ''
@@ -39,11 +39,6 @@ class CongresslistsController < ApplicationController
   def update
     @list = List.find(params[:list_id])
     @congresslist = Congresslist.new(congresslist_params)
-  end
-
-  def edit
-    @list = List.find(params[:list_id])
-    @congresslist = @list.congresslists
   end
 
   def destroy
