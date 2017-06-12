@@ -57,7 +57,7 @@
     font-weight: 700;
     line-height: 1.15;
     margin: 0;
-    background: indigo;
+    background: #024366;
     color: lightgray;
     font-family: Courier New;
     border: none;
@@ -65,7 +65,7 @@
   }
 
   .search-bar {
-    width: 6000px !important; 
+    width: 6000px !important;
   }
 
   .outer {

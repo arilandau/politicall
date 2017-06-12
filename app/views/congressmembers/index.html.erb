@@ -4,7 +4,7 @@
       <% @congressmembers.each do |congressmember| %>
         <div class="table-card">
           <% if congressmember.photo.blank? %>
-            <img src="http://www.debsnelsonphotography.com/wp-content/uploads/galleries/post-941/full/US%20Capitol%20Dome%20Washington%20DC%20Blue%20moment%20Predawn%20Night%20Low%20light%20photography.jpg">
+            <img src="https://rothfus.house.gov/sites/rothfus.house.gov/files/wysiwyg_uploaded/services.jpg">
           <% else %>
             <img src="<%= congressmember.photo %>">
           <% end %>
@@ -12,7 +12,7 @@
               <%= link_to congressmember.full_name, congressmember_path(congressmember) %>
             </h3>
             <h5><%= congressmember.state %>, <%= congressmember.party[0] %></h5>
-            <p><strong><%= congressmember.chamber %></strong></p>
+            <p><strong><%= congressmember.chamber.upcase %></strong></p>
         </div>
       <% end %>
     </div>
