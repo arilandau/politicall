@@ -15,7 +15,9 @@
  *= require foundation_and_overrides
 
  */
-
+ .callout {
+   border: 0px;
+ }
 
   .cards-container {
     flex: 1 1 90%;

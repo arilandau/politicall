@@ -36,6 +36,7 @@ class CongressmemberList extends Component {
       return (
         <Congressmember
           key={index}
+          id={index + 1}
           full_name={congressmember.full_name}
           state={congressmember.state}
           chamber={congressmember.chamber}
