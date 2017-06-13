@@ -5,8 +5,23 @@ class CongressmemberList extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        congressmembers: []
+        congressmembers: [],
+        currentPage: 1,
+        congressmembersPerPage: 10
       }
+    this.getData = this.getData.bind(this);
+    this.previousPage = this.previousPage.bind(this);
+    this.nextPage = this.nextPage.bind(this);
+  }
+
+  previousPage(event) {
+    let newPage = this.state.currentPage - 1;
+    this.setState({ currentPage: newPage })
+  }
+
+  nextPage(event) {
+    let newPage = this.state.currentPage + 1;
+    this.setState({ currentPage: newPage })
   }
 
   getData() {
@@ -32,7 +47,20 @@ class CongressmemberList extends Component {
   }
 
   render() {
-    let congressmembers = this.state.congressmembers.map((congressmember, index) => {
+    let indexOfLastCongressmember = this.state.currentPage * this.state.congressmembersPerPage;
+    let indexOfFirstCongressmember = indexOfLastCongressmember - this.state.congressmembersPerPage;
+
+    let currentCongressmembers;
+
+    if (indexOfFirstCongressmember < 0 ) {
+      currentCongressmembers = this.state.congressmembers.slice(0, 10);
+    } else if (indexOfLastCongressmember > this.state.congressmembers.length) {
+      currentCongressmembers = this.state.congressmembers.slice(this.state.congressmembers.length - 10, this.state.congressmembers.length)
+    } else {
+      currentCongressmembers = this.state.congressmembers.slice(indexOfFirstCongressmember, indexOfLastCongressmember);
+    }
+
+    let newCongressmembers = currentCongressmembers.map((congressmember, index) => {
       return (
         <Congressmember
           key={index}
@@ -45,11 +73,21 @@ class CongressmemberList extends Component {
     });
 
     return (
-      <div className="expandable">
-        <div className="cards-container">
-          <div className="table-cards">
-            {congressmembers}
+      <div>
+        <div className="expandable">
+          <div className="cards-container">
+            <div className="table-cards">
+              {newCongressmembers}
+            </div>
           </div>
+        </div>
+        <div className="text-center">
+          <button className="hollow button numbers" onClick={this.previousPage}>
+            Previous Page
+          </button>
+          <button className="hollow button numbers" onClick={this.nextPage}>
+            Next Page
+          </button>
         </div>
       </div>
     )
