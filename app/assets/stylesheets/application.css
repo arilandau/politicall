@@ -15,7 +15,15 @@
  *= require foundation_and_overrides
 
  */
-
+ .button.hollow.numbers {
+   margin-right: 8px;
+   width: 10%;
+   margin-left: 8px;
+   margin-top: 25px;
+ }
+ .callout {
+   border: 0px;
+ }
 
   .cards-container {
     flex: 1 1 90%;
