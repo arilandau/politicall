@@ -55,15 +55,15 @@
     <div class="container2">
       <% if flash[:notice] %>
         <% if flash[:notice].is_a?(String) %>
-          <h5 style="color: indigo"><%= flash[:notice] %></h5>
+          <h5><%= flash[:notice] %></h5>
         <% else %>
           <% flash[:notice].each do |key, value| %>
             <% if value.is_a?(Array) %>
               <% value.each do |error| %>
-                <h5 style="color: indigo"><%= "#{key.capitalize} #{error}." %></h5>
+                <h5><%= "#{key.capitalize} #{error}." %></h5>
               <% end %>
             <% else %>
-              <h5 style="color: indigo"><%= "#{key.capitalize} #{value}." %></h5>
+              <h5><%= "#{key.capitalize} #{value}." %></h5>
             <% end %>
             <br />
           <% end %>
