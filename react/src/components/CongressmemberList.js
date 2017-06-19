@@ -25,7 +25,7 @@ class CongressmemberList extends Component {
   }
 
   getData() {
-    fetch('http://localhost:3000/api/v1/congressmembers.json')
+    fetch('api/v1/congressmembers', {method: 'get'})
       .then(response => {
         if (response.ok) {
           return response;
