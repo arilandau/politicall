@@ -13,6 +13,7 @@ class CongressmemberList extends Component {
     this.getData = this.getData.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   previousPage(event) {
@@ -47,10 +48,22 @@ class CongressmemberList extends Component {
     this.getData()
   }
 
+  updateSearch(event) {
+    this.setState({ search: event.target.value.substr(0,20) })
+  }
+
   render() {
     let indexOfLastCongressmember = this.state.currentPage * this.state.congressmembersPerPage;
     let indexOfFirstCongressmember = indexOfLastCongressmember - this.state.congressmembersPerPage;
     let currentCongressmembers;
+    let filtered = this.state.congressmembers.filter(
+        (congressmember) => {
+          return congressmember.full_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+          congressmember.state.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+          congressmember.chamber.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        }
+    );
+
     let previousClass = "hollow button"
     let nextClass = "hollow button"
     let previous = "⇦"
@@ -58,12 +71,12 @@ class CongressmemberList extends Component {
 
 
     if (indexOfFirstCongressmember < 0 ) {
-      currentCongressmembers = this.state.congressmembers.slice(0, 10);
+      currentCongressmembers = filtered.slice(0, 10);
     } else {
-      currentCongressmembers = this.state.congressmembers.slice(indexOfFirstCongressmember, indexOfLastCongressmember)
+      currentCongressmembers = filtered.slice(indexOfFirstCongressmember, indexOfLastCongressmember)
     }
 
-    let newCongressmembers = currentCongressmembers.map((congressmember, index) => {
+    let finalCongressmembers = currentCongressmembers.map((congressmember, index) => {
       return (
         <Congressmember
           key={index}
@@ -77,10 +90,17 @@ class CongressmemberList extends Component {
 
     return (
       <div>
+        <input
+         placeholder="Search"
+         type="text"
+         value={this.state.search}
+         onChange={this.updateSearch}
+         className="searchBar"
+        />
         <div className="expandable">
           <div className="cards-container">
             <div className="table-cards">
-              {newCongressmembers}
+              {finalCongressmembers}
             </div>
           </div>
         </div>
