@@ -7,11 +7,13 @@ class CongressmemberList extends Component {
       this.state = {
         congressmembers: [],
         currentPage: 1,
-        congressmembersPerPage: 10
+        congressmembersPerPage: 10,
+        search: ''
       }
     this.getData = this.getData.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   previousPage(event) {
@@ -25,7 +27,7 @@ class CongressmemberList extends Component {
   }
 
   getData() {
-    fetch('api/v1/congressmembers', {method: 'get'})
+    fetch('http://localhost:3000/api/v1/congressmembers.json')
       .then(response => {
         if (response.ok) {
           return response;
@@ -46,18 +48,32 @@ class CongressmemberList extends Component {
     this.getData()
   }
 
+  updateSearch(event) {
+    this.setState({ search: event.target.value.substr(0,20) });
+  }
+
   render() {
+    let filteredCongressmembers = this.state.congressmembers.filter(
+      (congressmember) => {
+        return congressmember.full_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+          congressmember.state.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+          congressmember.chamber.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      }
+    )
+
     let indexOfLastCongressmember = this.state.currentPage * this.state.congressmembersPerPage;
     let indexOfFirstCongressmember = indexOfLastCongressmember - this.state.congressmembersPerPage;
-
     let currentCongressmembers;
+    let buttonClass = "hollow button numbers"
+    let previousButton = "Previous"
+    let nextButton = "Next"
 
     if (indexOfFirstCongressmember < 0 ) {
-      currentCongressmembers = this.state.congressmembers.slice(0, 10);
-    } else if (indexOfLastCongressmember > this.state.congressmembers.length) {
-      currentCongressmembers = this.state.congressmembers.slice(this.state.congressmembers.length - 10, this.state.congressmembers.length)
+      currentCongressmembers = filteredCongressmembers.slice(0, 10);
+    } else if (indexOfLastCongressmember > filteredCongressmembers.length) {
+      currentCongressmembers = filteredCongressmembers.slice(filteredCongressmembers.length - 10, filteredCongressmembers.length)
     } else {
-      currentCongressmembers = this.state.congressmembers.slice(indexOfFirstCongressmember, indexOfLastCongressmember);
+      currentCongressmembers = filteredCongressmembers.slice(indexOfFirstCongressmember, indexOfLastCongressmember);
     }
 
     let newCongressmembers = currentCongressmembers.map((congressmember, index) => {
@@ -72,8 +88,25 @@ class CongressmemberList extends Component {
       )
     });
 
+    if (newCongressmembers.length < this.state.congressmembersPerPage) {
+      buttonClass = ""
+      previousButton = ""
+      nextButton = ""
+    }
+
     return (
       <div>
+        <div className="row">
+          <div className="small-12 columns medium-6 columns large-6 columns">
+            <input
+              className="searchBar"
+              placeholder="Search"
+              type="text"
+              value={this.state.search}
+              onChange={this.updateSearch}
+            />
+          </div>
+        </div>
         <div className="expandable">
           <div className="cards-container">
             <div className="table-cards">
@@ -82,11 +115,11 @@ class CongressmemberList extends Component {
           </div>
         </div>
         <div className="text-center">
-          <button className="hollow button numbers" onClick={this.previousPage}>
-            Previous Page
+          <button className={buttonClass} onClick={this.previousPage}>
+            {previousButton}
           </button>
-          <button className="hollow button numbers" onClick={this.nextPage}>
-            Next Page
+          <button className={buttonClass} onClick={this.nextPage}>
+            {nextButton}
           </button>
         </div>
       </div>
