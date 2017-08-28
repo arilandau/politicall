@@ -55,7 +55,6 @@ class CongressmemberList extends Component {
   render() {
     let indexOfLastCongressmember = this.state.currentPage * this.state.congressmembersPerPage;
     let indexOfFirstCongressmember = indexOfLastCongressmember - this.state.congressmembersPerPage;
-    let currentCongressmembers;
     let filtered = this.state.congressmembers.filter(
         (congressmember) => {
           return congressmember.full_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
@@ -64,6 +63,8 @@ class CongressmemberList extends Component {
         }
     );
 
+
+    let currentCongressmembers;
     let previousClass = "hollow button"
     let nextClass = "hollow button"
     let previous = "⇦"
@@ -73,10 +74,6 @@ class CongressmemberList extends Component {
       currentCongressmembers = filtered.slice(0, 10)
     } else {
       currentCongressmembers = filtered.slice(indexOfFirstCongressmember, indexOfLastCongressmember)
-    }
-
-    if (indexOfFirstCongressmember <= 0) {
-      previousClass += " empty"
     }
 
     let finalCongressmembers = currentCongressmembers.map((congressmember, index) => {
@@ -91,6 +88,14 @@ class CongressmemberList extends Component {
       )
     });
 
+    if (indexOfFirstCongressmember <= 0) {
+      previousClass += " empty"
+    }
+
+    if (indexOfLastCongressmember >= filtered.length) {
+      nextClass += " empty"
+    }
+    
     return (
       <div>
         <input
