@@ -69,11 +69,14 @@ class CongressmemberList extends Component {
     let previous = "⇦"
     let next = "⇨"
 
-
     if (indexOfFirstCongressmember < 0 ) {
-      currentCongressmembers = filtered.slice(0, 10);
+      currentCongressmembers = filtered.slice(0, 10)
     } else {
       currentCongressmembers = filtered.slice(indexOfFirstCongressmember, indexOfLastCongressmember)
+    }
+
+    if (indexOfFirstCongressmember <= 0) {
+      previousClass += " empty"
     }
 
     let finalCongressmembers = currentCongressmembers.map((congressmember, index) => {
