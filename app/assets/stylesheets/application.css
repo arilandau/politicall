@@ -17,10 +17,6 @@
  */
 
  .button.hollow.empty {
-   margin-right: 8px;
-   width: 10%;
-   margin-left: 8px;
-   margin-top: 25px;
    color: white;
    border: white;
  }
