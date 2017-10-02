@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171002191944) do
     t.string  "email"
     t.string  "url"
     t.string  "senority"
-    t.integer "next_election",    null: false
+    t.integer "next_election"
     t.string  "phone"
     t.string  "state",            null: false
     t.string  "photo"
