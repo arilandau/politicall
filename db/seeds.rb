@@ -112,7 +112,7 @@ house['results'][0]['members'].each do |c|
     email: c['email'],
     url: c['url'],
     senority: c['senority'],
-    next_election: c['next_election'],
+    next_election: c["next_election"],
     phone: c['phone'],
     state: abbr_to_state(c['state'])
   )
