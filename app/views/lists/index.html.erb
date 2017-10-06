@@ -25,7 +25,7 @@
               <ul>
                 <% c.full_name += ", " + c.party + "-" + c.state  %>
                 <li style="list-style: none">
-                  <%= link_to name, congressmember_path(c) %>
+                  <%= link_to c.full_name, congressmember_path(c) %>
                   <%= link_to '☒', list_congresslist_path(list, c), method: :delete %>
                 </li>
               </ul>

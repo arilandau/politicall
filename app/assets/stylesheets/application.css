@@ -88,8 +88,21 @@
     }
   }
 
-  #spacer {
-    display: inline;
+  .no-grid-warning {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    color: red;
+    left:0;
+    top:0;
+    background-color: #fff;
+    text-align:center;
+    padding: 20px;
+  }
+
+  .notice {
+    margin-top: .75rem; 
   }
 
   .outer {
@@ -124,15 +137,6 @@
       flex: 1 1 0;
   }
 
-  .no-grid-warning {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10000;
-    color: red;
-    left:0;
-    top:0;
-    background-color: #fff;
-    text-align:center;
-    padding: 20px;
+  #spacer {
+    display: inline;
   }
