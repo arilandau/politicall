@@ -63,7 +63,6 @@ class CongressmemberList extends Component {
         }
     );
 
-
     let currentCongressmembers;
     let previousClass = "hollow button"
     let nextClass = "hollow button"
@@ -80,7 +79,7 @@ class CongressmemberList extends Component {
       return (
         <Congressmember
           key={index}
-          id={index + 1}
+          id={congressmember.id}
           full_name={congressmember.full_name}
           state={congressmember.state}
           chamber={congressmember.chamber}
@@ -95,7 +94,7 @@ class CongressmemberList extends Component {
     if (indexOfLastCongressmember >= filtered.length) {
       nextClass += " empty"
     }
-    
+
     return (
       <div>
         <input
