@@ -46,6 +46,7 @@ class CongressmemberList extends Component {
 
   componentDidMount() {
     this.getData()
+    console.log("hello")
   }
 
   updateSearch(event) {
@@ -80,7 +81,7 @@ class CongressmemberList extends Component {
       return (
         <Congressmember
           key={index}
-          id={index + 1}
+          id={congressmember.id}
           full_name={congressmember.full_name}
           state={congressmember.state}
           chamber={congressmember.chamber}
@@ -95,7 +96,7 @@ class CongressmemberList extends Component {
     if (indexOfLastCongressmember >= filtered.length) {
       nextClass += " empty"
     }
-    
+
     return (
       <div>
         <input
