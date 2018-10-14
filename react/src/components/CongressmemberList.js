@@ -46,7 +46,6 @@ class CongressmemberList extends Component {
 
   componentDidMount() {
     this.getData()
-    console.log("hello")
   }
 
   updateSearch(event) {
@@ -63,7 +62,6 @@ class CongressmemberList extends Component {
           congressmember.chamber.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         }
     );
-
 
     let currentCongressmembers;
     let previousClass = "hollow button"
