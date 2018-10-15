@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :set_list, except: :index
   def index
     @user = current_user
     @lists = List.where(user: @user)
@@ -6,18 +7,14 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
     @congressmembers = @list.congressmembers(:name)
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @list = List.new
   end
 
   def create
-    @list = List.new(name: params[:list][:name])
-    @user = User.find(params[:user_id])
+    @user = current_user
     @list.user = @user
 
     if @list.save
@@ -35,11 +32,9 @@ class ListsController < ApplicationController
 
   def edit
     @user = current_user
-    @list = List.find(params[:id])
   end
 
   def update
-    @list = List.find(params[:id])
     if @list.update_attributes(list_params)
       @list.save
       flash[:notice] = 'List updated.'
@@ -51,7 +46,6 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id])
     @list.delete
 
     flash[:notice] = 'List deleted.'
@@ -70,5 +64,16 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:name, :user)
+  end
+
+  def set_list
+    @list = case params[:action]
+    when "show", "edit", "update", "destroy"
+      List.find(params[:id])
+    when "new"
+      List.new
+    when "create"
+      List.new(name: params[:list][:name])
+    end
   end
 end

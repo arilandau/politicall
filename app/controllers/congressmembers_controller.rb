@@ -1,5 +1,6 @@
 class CongressmembersController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
+  before_action :set_congressmember, except: :index
 
   def index
     @congressmembers = if params[:term]
@@ -10,16 +11,12 @@ class CongressmembersController < ApplicationController
   end
 
   def show
-    @congressmember = Congressmember.find(params[:id])
   end
 
   def new
-    @congressmember = Congressmember.new
   end
 
   def create
-    @congressmember = Congressmember.create(congressmember_params)
-
     if @congressmember.save
       flash[:notice] = 'Congressmember added successfully!'
       redirect_to @congressmember
@@ -34,11 +31,9 @@ class CongressmembersController < ApplicationController
   end
 
   def edit
-    @congressmember = Congressmember.find(params[:id])
   end
 
   def update
-    @congressmember = Congressmember.find(params[:id])
     if @congressmember.update_attributes(congressmember_params)
       flash[:notice] = 'Congressmember updated.'
       redirect_to @congressmember
@@ -49,7 +44,6 @@ class CongressmembersController < ApplicationController
   end
 
   def destroy
-    @congressmember = Congressmember.find(params[:id])
     @congressmember.delete
 
     flash[:notice] = 'Congressmember deleted.'
@@ -68,5 +62,18 @@ class CongressmembersController < ApplicationController
 
   def congressmember_params
     params.require(:congressmember).permit(:full_name, :party, :chamber, :leadership_role, :twitter_account, :facebook_account, :email, :url, :senority, :next_election, :phone, :state, :photo)
+  end
+
+  def set_congressmember
+    @congressmember = case params[:action]
+    when "show", "edit", "destroy"
+      Congressmember.find(params[:id])
+    when "new"
+      Congressmember.new
+    when "create"
+      Congressmember.create(congressmember_params)
+    when "update"
+      Congressmember.find(params[:id]).tap { |c| c.assign_attributes(congressmember_params) }
+    end
   end
 end

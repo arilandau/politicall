@@ -1,8 +1,6 @@
 FactoryGirl.define do
   factory :congressmember do
-    first_name 'Selina'
-    middle_name 'Medusa'
-    last_name 'Meyer'
+    full_name 'Selina Meyer'
     party 'D'
     state 'IL'
     chamber 'House'
